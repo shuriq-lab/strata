@@ -1,0 +1,44 @@
+{
+  "name": "strata",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Strata: a Git platform where an engagement is a memory pyramid and concurrent agents merge at the record layer.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1 --port 43123",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1 --port 43123",
+    "demo": "tsx scripts/demo.ts",
+    "seed": "tsx scripts/seed.ts",
+    "mcp": "tsx scripts/mcp.ts",
+    "test": "tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "worker:dev": "wrangler dev --port 8788",
+    "worker:deploy": "wrangler deploy",
+    "worker:types": "wrangler types worker/worker-configuration.d.ts"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.2.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.545.0",
+    "next": "^15.5.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.14",
+    "@types/node": "^22.18.8",
+    "@types/react": "^19.1.15",
+    "@types/react-dom": "^19.1.9",
+    "tailwindcss": "^4.1.14",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.42.0"
+  }
+}

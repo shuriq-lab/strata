@@ -1,0 +1,13 @@
+node_modules
+.next
+.demo
+.wrangler
+out
+dist
+*.tsbuildinfo
+.DS_Store
+.env
+.env.*
+!.env.example
+uploads/
+agent-tools/

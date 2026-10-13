@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "strata-navigator",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-10-13",
+  "upload_source_maps": true,
+  // Placeholder only. Create the namespace in your account and replace this.
+  // No account id, token, or secret belongs in this file.
+  "artifacts": [
+    {
+      "binding": "ARTIFACTS",
+      "namespace": "YOUR_ARTIFACTS_NAMESPACE"
+    }
+  ],
+  "vars": {
+    "REPO_NAME": "northwind-dusk"
+  }
+}
