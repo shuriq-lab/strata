@@ -11,3 +11,4 @@ dist
 !.env.example
 uploads/
 agent-tools/
+.demo-nrvt/

@@ -257,7 +257,7 @@ export class CloudflareStore implements RepoStore {
       if (/Insufficient permissions|returned error: 403/i.test(message)) {
         // Drop the local commit so the cache matches the remote again.
         await git(["reset", "--hard", "HEAD~1"], dir).catch(() => undefined);
-        throw new StrataError("Insufficient permissions. Artifacts refused the push for this token.", "insufficient_permissions");
+        throw new StrataError("Insufficient permissions. Artifacts refused the push for this token.", "insufficient_permissions", /\b403\b/.test(message) ? 403 : undefined);
       }
       throw error;
     }

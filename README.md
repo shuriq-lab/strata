@@ -21,8 +21,9 @@ Local (no Cloudflare account needed, Node 20+):
 
 ```
 npm install
-npm run demo
-npm test        # 18 tests
+npm run demo        # Northwind reference scenario
+npm run demo:nrvt   # NRVT storm week: five towns, one collective memory
+npm test            # 19 tests
 ```
 
 Live against Cloudflare Artifacts:
@@ -35,7 +36,11 @@ export ARTIFACTS_NAMESPACE=strata-demo   # use a fresh test namespace
 npm run demo
 ```
 
-The live demo creates (and replaces) repos named `northwind-dusk*` in that namespace. Requires the Workers Paid plan.
+The live demos create (and replace) repos named `northwind-dusk*` and `nrvt-collective*` in that namespace.
+
+### nrvt-storm-week
+
+Five town agents (Norwalk, Wilton, Ridgefield, Redding, Danbury) and a Norwalk what-if agent fork `nrvt-collective` and write at the same time. The run shows Redding's sensor claim and a Ridgefield resident's claim kept as an open conflict, Wilton refused by `contract.json` when it tries to write Redding's record, the evening-hours what-if compared and never merged, a read-only token refused with HTTP 403, and a human steward's decision (storm fund, crew days, hours ruling) committed as a record that cites every claim it relied on. All amounts, IDs, readings and names in this scenario are illustrative, not NRVT data. Requires the Workers Paid plan.
 
 Token permissions (Cloudflare custom API token, scoped to one account):
 - Account > Artifacts > Edit (required)

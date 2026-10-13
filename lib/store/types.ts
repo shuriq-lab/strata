@@ -61,6 +61,7 @@ export class StrataError extends Error {
       | "wrong_repo"
       | "not_found"
       | "invalid_token",
+    readonly status?: number,
   ) {
     super(message);
     this.name = "StrataError";

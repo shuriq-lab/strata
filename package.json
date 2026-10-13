@@ -13,6 +13,7 @@
     "build": "next build",
     "start": "next start --hostname 127.0.0.1 --port 43123",
     "demo": "tsx scripts/demo.ts",
+    "demo:nrvt": "tsx scripts/demo-nrvt.ts",
     "seed": "tsx scripts/seed.ts",
     "mcp": "tsx scripts/mcp.ts",
     "test": "tsx --test tests/*.test.ts",
