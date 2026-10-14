@@ -50,7 +50,7 @@ async function pack(objs) {
   const body = cat(parts); return cat([body, unhex(await sha1(body))]);
 }
 const pkt = (s) => { const b = te.encode(s); return cat([te.encode((b.length + 4).toString(16).padStart(4, "0")), b]); };
-export async function commitFiles(repo, { files, message, author, branch = "main" }) {
+export async function commitFiles(repo, { files, message, author, branch = "main", when }) {
   const info = await repo.info();
   const remote = String(info.remote ?? info.remoteUrl ?? info.url);
   const tok = await repo.createToken("write", 600);
@@ -61,7 +61,7 @@ export async function commitFiles(repo, { files, message, author, branch = "main
   if (!parentTree) { const c = await repo.readCommit(parent); parentTree = c.tree ?? c.tree_hash ?? c.treeHash; }
   const out = [];
   const tree = await buildTree(repo, String(parentTree), files.map((f) => ({ path: f.path, bytes: typeof f.content === "string" ? te.encode(f.content) : f.content })), out);
-  const ts = Math.floor(Date.now() / 1000);
+  const ts = when ? Math.floor(new Date(when).getTime() / 1000) : Math.floor(Date.now() / 1000);
   const who = `${author.name} <${author.email}> ${ts} +0000`;
   const c = await obj("commit", te.encode(`tree ${tree}\nparent ${parent}\nauthor ${who}\ncommitter ${who}\n\n${message}\n`));
   out.push(c);
