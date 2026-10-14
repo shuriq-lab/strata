@@ -238,3 +238,7 @@ npx wrangler deploy
 ```
 
 Live demo: https://strata-console.jonny-a6b.workers.dev
+
+## Acknowledgements
+
+Strata uses [Sense Collective](https://github.com/sensecollective)'s open-source Perceptagon and [Totem Protocol](https://totemprotocol.io/), and ShurIQ's business intelligence framework.
