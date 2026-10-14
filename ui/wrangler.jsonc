@@ -1,0 +1,9 @@
+{
+  "name": "strata-console",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+  // Replace with your own Artifacts namespace.
+  "artifacts": [{ "binding": "ARTIFACTS", "namespace": "strata-contest-demo" }],
+  "vars": { "REPO": "nrvt-collective" }
+}

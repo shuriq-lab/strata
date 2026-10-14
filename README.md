@@ -216,3 +216,25 @@ Record the terminal in a large font. Use only this synthetic engagement. Cloudfl
 ## What this is not
 
 Scoring grammars, rubrics, and brand indexes are not in this repo. `evidence` here is a sourced excerpt, not a score. The agents are deterministic scripts so the demo runs without a model key. An optional `--llm` flag only narrates answers that the scripts already produced.
+
+## Strata console (web UI)
+
+`ui/` is a single Cloudflare Worker (`strata-console`) that reads the live NRVT
+Artifacts repos through the `ARTIFACTS` binding and lets each town upload source
+documents (PDF, image or text, up to 1.5 MB). An upload is committed straight to
+that town's fork: the file as a blob under `raw/<town>/uploads/`, plus a source
+record citing it in `records/<town>/sources.jsonl`, in one commit. The Worker
+mints a short-lived write token for the fork and pushes over git smart HTTP
+(`ui/src/git.js`), so no git binary or storage bucket is needed.
+
+Views: upload form, town forks with sources and recent commits, the shared
+`nrvt-collective` memory, open conflicts with both claims and their sources side
+by side, and the steward's committed decision.
+
+```bash
+cd ui
+# set the artifacts namespace in wrangler.jsonc, after running npm run demo:nrvt
+npx wrangler deploy
+```
+
+Live demo: https://strata-console.jonny-a6b.workers.dev
